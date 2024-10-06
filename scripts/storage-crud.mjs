@@ -15,7 +15,13 @@ export function catchPokemon(pokeId){
 
 export function releasePokemon(pokeId){
     let pokedex = getPokedex()
-    if(pokedex.find(pokemon => pokemon.id === pokeId)){
+    let match = false
+    for(let poke of pokedex){
+        if(parseInt(poke) === pokeId){
+            match = true
+        }
+    }
+    if(match === true){
         pokedex.splice(pokedex.indexOf(pokeId), 1)
         console.log(`Pokemon # ${pokeId} released, current Pokemon lineup: ${pokedex}`)
         savePokedex(pokedex)

@@ -1,0 +1,9 @@
+img{
+ height: 250px;
+ width: 250px;
+}
+
+#pokeDiv{
+    display: flex;
+    align-items: between;
+}
