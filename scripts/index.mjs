@@ -6,16 +6,20 @@ window.addEventListener('load', function(){
     let generateBtn = document.querySelector('#generateBtn')
     let pokeDiv = document.querySelector('#pokeDiv')
     generateBtn.addEventListener('click', async function(e){
+  
         pokeDiv.innerHTML = ''
         let pokemon = await pokeFuncs.generatePokemon()
+        let pokeName = pokemon.name
+        let firstLetter = pokeName[0].toUpperCase()
+        pokeName = firstLetter + pokeName.slice(1)
         let pokeImg = document.createElement('img')
         let savePokeBtn = document.createElement('button')
         let pokeH4 = document.createElement('h4')
         savePokeBtn.style.height = '50px'
         pokeImg.setAttribute('src', pokemon.sprites.front_default)
         savePokeBtn.setAttribute('value', pokemon.id)
-        savePokeBtn.innerText = `Catch ${pokemon.name}?`
-        pokeH4.innerText = `A wild ${pokemon.name} appeared!`
+        savePokeBtn.innerText = `Catch ${pokeName}?`
+        pokeH4.innerText = `A wild ${pokeName} appeared!`
         savePokeBtn.addEventListener('click', function(e){
             let pokeId = e.target.value
             storageFuncs.catchPokemon(pokeId)
