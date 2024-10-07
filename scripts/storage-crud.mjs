@@ -17,7 +17,7 @@ export function releasePokemon(pokeId){
     let pokedex = getPokedex()
     let match = false
     for(let poke of pokedex){
-        if(parseInt(poke) === pokeId){
+        if(parseInt(poke) == pokeId){
             match = true
         }
     }
